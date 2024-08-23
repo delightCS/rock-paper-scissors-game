@@ -1,24 +1,28 @@
 let hands = ["Rock", "Paper", "Scissors"];
-function getComputerChoice(hands) {
+
+function getComputerChoice() {
   let randomIndex = Math.floor(Math.random() * hands.length);
   return hands[randomIndex];
 }
-console.log(getComputerChoice(hands));
 
 function getHumanChoice() {
   let myChoice = prompt("Choose between rock, paper, or scissors");
 
-  if (myChoice === "rock") {
-    return "Rock";
-  } else if (myChoice === "paper") {
-    return "Paper";
-  } else if (myChoice === "scissors") {
-    return "Scissors";
+  if (myChoice) {
+    myChoice = myChoice.toLowerCase();
+
+    if (myChoice === "rock") {
+      return "Rock";
+    } else if (myChoice === "paper") {
+      return "Paper";
+    } else if (myChoice === "scissors") {
+      return "Scissors";
+    } else {
+      alert("Invalid choice. Please choose between rock, paper, or scissors.");
+      return getHumanChoice();
+    }
   } else {
-    alert("Reload and choose from the option given");
+    alert("You didn't make a choice.");
+    return null;
   }
 }
-console.log(getHumanChoice());
-
-let humanScore = 0;
-let computerScore = 0;
