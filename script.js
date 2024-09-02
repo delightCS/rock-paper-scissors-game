@@ -67,7 +67,7 @@ function playGame() {
   } else if (humanScore < computerScore) {
     alert("Computer won this round. Reload the page to play again.");
   } else {
-    alert("It's a draw. Reload the page to play again.");
+    alert("It's a tie. Reload the page to play again.");
   }
 }
 playGame();
