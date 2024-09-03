@@ -5,14 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock-Paper-Scissors</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="tailwindstyle.css" />
   </head>
   <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <div class="text-center mx-auto mt-20">
+      <h1 class="text-2xl mb-8">ROCK PAPER SCISSORS GAME</h1>
+      <h2 class="text-xl">RULES: First to score five wins.</h2>
+      <h3 class="text-xl mb-12">Pick one to start</h3>
 
-    <p id="choices"></p>
-    <p id="scores"></p>
-    <p id="winner"></p>
+      <div class="text-xl">
+        <p id="choices"></p>
+        <p id="scores"></p>
+        <p id="winner"></p>
+      </div>
+
+      <div class="flex justify-center gap-12 mt-40">
+        <button
+          id="rock"
+          class="border-2 border-blue-500 px-6 py-2 rounded-full"
+        >
+          Rock
+        </button>
+        <button
+          id="paper"
+          class="border-2 border-blue-500 px-6 py-2 rounded-full"
+        >
+          Paper
+        </button>
+        <button
+          id="scissors"
+          class="border-2 border-blue-500 px-6 py-2 rounded-full"
+        >
+          Scissors
+        </button>
+      </div>
+    </div>
   </body>
 </html>

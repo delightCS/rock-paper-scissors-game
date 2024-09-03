@@ -37,7 +37,7 @@ function playGame() {
     }
 
     let para = document.querySelector("#scores");
-    para.textContent = `Human score: ${humanScore}, Computer score: ${computerScore}`;
+    para.textContent = `Your score: ${humanScore}, Computer score: ${computerScore}`;
 
     let winPara = document.querySelector("#winner");
     if (humanScore === 5) {
