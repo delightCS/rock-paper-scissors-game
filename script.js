@@ -15,35 +15,36 @@ function playGame() {
     let newPara = document.querySelector("#choices");
 
     if (humanChoice === "rock" && computerChoice === "scissors") {
-      newPara.textContent = "You win, Rock beats Scissors.";
+      newPara.textContent = `You win, Your choice: ${humanChoice}, Computer choice: ${computerChoice}.`;
       humanScore++;
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
-      newPara.textContent = "You lose, Rock beats Scissors.";
+      newPara.textContent = `You lose, Your choice: ${humanChoice}, Computer choice: ${computerChoice}.`;
       computerScore++;
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
-      newPara.textContent = "You lose, Scissors beats Paper.";
+      newPara.textContent = `You lose, Your choice: ${humanChoice}, Computer choice: ${computerChoice}.`;
       computerScore++;
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
-      newPara.textContent = "You win, Scissors beats paper.";
+      newPara.textContent = `You win, Your choice: ${humanChoice}, Computer choice: ${computerChoice}.`;
       humanScore++;
     } else if (humanChoice === "paper" && computerChoice === "rock") {
-      newPara.textContent = "You win, Paper beats Rock.";
+      newPara.textContent = `You win, Your choice: ${humanChoice}, Computer choice: ${computerChoice}.`;
       humanScore++;
     } else if (humanChoice === "rock" && computerChoice === "paper") {
-      newPara.textContent = "You lose, Paper beats Rock.";
+      newPara.textContent = `You lose, Your choice: ${humanChoice}, Computer choice: ${computerChoice}.`;
       computerScore++;
     } else {
-      newPara.textContent = "It's a tie.";
+      newPara.textContent = `It's a tie. Your choice: ${humanChoice}, Computer choice: ${computerChoice}`;
     }
 
     let para = document.querySelector("#scores");
     para.textContent = `Human score: ${humanScore}, Computer score: ${computerScore}`;
-  }
 
-  if (humanScore === 5) {
-    alert("You won this round. Reload the page to play again.");
-  } else if (computerScore === 5) {
-    alert("Computer won this round. Reload the page to play again.");
+    let winPara = document.querySelector("#winner");
+    if (humanScore === 5) {
+      winPara.textContent = "You won this round. Reload to play again.";
+    } else if (computerScore === 5) {
+      winPara.textContent = "Computer won this round. Reload to play again.";
+    }
   }
 
   function humanSelection() {
