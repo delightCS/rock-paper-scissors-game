@@ -12,42 +12,41 @@ function playGame() {
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
 
+    let newPara = document.querySelector("#choices");
+
     if (humanChoice === "rock" && computerChoice === "scissors") {
-      alert("You win, Rock beats Scissors.");
+      newPara.textContent = "You win, Rock beats Scissors.";
       humanScore++;
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
-      alert("You lose, Rock beats Scissors.");
+      newPara.textContent = "You lose, Rock beats Scissors.";
       computerScore++;
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
-      alert("You lose, Scissors beats Paper.");
+      newPara.textContent = "You lose, Scissors beats Paper.";
       computerScore++;
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
-      alert("You win, Scissors beats paper.");
+      newPara.textContent = "You win, Scissors beats paper.";
       humanScore++;
     } else if (humanChoice === "paper" && computerChoice === "rock") {
-      alert("You win, Paper beats Rock.");
+      newPara.textContent = "You win, Paper beats Rock.";
       humanScore++;
     } else if (humanChoice === "rock" && computerChoice === "paper") {
-      alert("You lose, Paper beats Rock.");
+      newPara.textContent = "You lose, Paper beats Rock.";
       computerScore++;
     } else {
-      alert("It's a draw.");
+      newPara.textContent = "It's a tie.";
     }
-    console.log(
-      `Human choice: ${humanChoice}, Computer choice: ${computerChoice}`
-    );
-    console.log(
-      `Human score -> ${humanScore}, Computer score -> ${computerScore}`
-    );
+
+    let para = document.querySelector("#scores");
+    para.textContent = `Human score: ${humanScore}, Computer score: ${computerScore}`;
   }
 
-  if (humanScore > computerScore) {
+  if (humanScore === 5) {
     alert("You won this round. Reload the page to play again.");
-  } else if (humanScore < computerScore) {
+  } else if (computerScore === 5) {
     alert("Computer won this round. Reload the page to play again.");
   }
 
-  function getHumanChoice() {
+  function humanSelection() {
     let rock = document.querySelector("#rock");
     let paper = document.querySelector("#paper");
     let scissors = document.querySelector("#scissors");
@@ -64,6 +63,6 @@ function playGame() {
       playround("Scissors", getComputerChoice());
     });
   }
-  getHumanChoice();
+  humanSelection();
 }
 playGame();
