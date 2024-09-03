@@ -4,70 +4,66 @@ function getComputerChoice() {
   return hands[randomIndex];
 }
 
-function getHumanChoice() {
-  let myChoice = prompt("Choose between rock, paper or scissors");
-
-  if (myChoice) {
-    if (myChoice === "rock") {
-      return "Rock";
-    } else if (myChoice === "paper") {
-      return "Paper";
-    } else if (myChoice === "scissors") {
-      return "Scissors";
-    } else {
-      alert("Inavlid input. Choose between rock, paper or scissors");
-      return getHumanChoice();
-    }
-  } else {
-    alert("You canceled the game.");
-  }
-}
-
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
-  for (let i = 0; i < 5; i++) {
-    function playround(humanChoice, computerChoice) {
-      humanChoice = humanChoice.toLowerCase();
-      computerChoice = computerChoice.toLowerCase();
+  function playround(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    computerChoice = computerChoice.toLowerCase();
 
-      if (humanChoice === "rock" && computerChoice === "scissors") {
-        alert("You win, Rock beats Scissors.");
-        humanScore++;
-      } else if (humanChoice === "scissors" && computerChoice === "rock") {
-        alert("You lose, Rock beats Scissors.");
-        computerScore++;
-      } else if (humanChoice === "paper" && computerChoice === "scissors") {
-        alert("You lose, Scissors beats Paper.");
-        computerScore++;
-      } else if (humanChoice === "scissors" && computerChoice === "paper") {
-        alert("You win, Scissors beats paper.");
-        humanScore++;
-      } else if (humanChoice === "paper" && computerChoice === "rock") {
-        alert("You win, Paper beats Rock.");
-        humanScore++;
-      } else if (humanChoice === "rock" && computerChoice === "paper") {
-        alert("You lose, Paper beats Rock.");
-        computerScore++;
-      } else {
-        alert("It's a draw.");
-      }
-      console.log(
-        `Human choice: ${humanChoice}, Computer choice: ${computerChoice}`
-      );
-      console.log(
-        `Human score -> ${humanScore}, Computer score -> ${computerScore}`
-      );
+    if (humanChoice === "rock" && computerChoice === "scissors") {
+      alert("You win, Rock beats Scissors.");
+      humanScore++;
+    } else if (humanChoice === "scissors" && computerChoice === "rock") {
+      alert("You lose, Rock beats Scissors.");
+      computerScore++;
+    } else if (humanChoice === "paper" && computerChoice === "scissors") {
+      alert("You lose, Scissors beats Paper.");
+      computerScore++;
+    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+      alert("You win, Scissors beats paper.");
+      humanScore++;
+    } else if (humanChoice === "paper" && computerChoice === "rock") {
+      alert("You win, Paper beats Rock.");
+      humanScore++;
+    } else if (humanChoice === "rock" && computerChoice === "paper") {
+      alert("You lose, Paper beats Rock.");
+      computerScore++;
+    } else {
+      alert("It's a draw.");
     }
-    playround(getHumanChoice(), getComputerChoice());
+    console.log(
+      `Human choice: ${humanChoice}, Computer choice: ${computerChoice}`
+    );
+    console.log(
+      `Human score -> ${humanScore}, Computer score -> ${computerScore}`
+    );
   }
+
   if (humanScore > computerScore) {
     alert("You won this round. Reload the page to play again.");
   } else if (humanScore < computerScore) {
     alert("Computer won this round. Reload the page to play again.");
-  } else {
-    alert("It's a tie. Reload the page to play again.");
   }
+
+  function getHumanChoice() {
+    let rock = document.querySelector("#rock");
+    let paper = document.querySelector("#paper");
+    let scissors = document.querySelector("#scissors");
+
+    rock.addEventListener("click", () => {
+      playround("Rock", getComputerChoice());
+    });
+
+    paper.addEventListener("click", () => {
+      playround("Paper", getComputerChoice());
+    });
+
+    scissors.addEventListener("click", () => {
+      playround("Scissors", getComputerChoice());
+    });
+  }
+  getHumanChoice();
 }
 playGame();
